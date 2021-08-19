@@ -1,0 +1,18 @@
+int numPoint = chi("number_Point");
+int seed = chi("seed");
+
+float addDist = 0;
+
+float randDist = chf("randDist");
+float baseDist = chf("baseDist");
+
+addpoint(0,{0,0,0});
+
+for(int i =1;i<numPoint;i++)
+    {
+    float move = rand(i+seed);
+    move = fit01(move,baseDist-randDist,baseDist+randDist);
+    addDist +=move;
+    vector dist = set(0,0,addDist);
+    addpoint(0,dist);
+    }
